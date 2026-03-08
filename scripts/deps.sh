@@ -1,10 +1,7 @@
 #!/bin/bash
-BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-DEPS_DIR="$BASE_DIR/deps"
-
-rm -rf "$DEPS_DIR"
-mkdir -p "$DEPS_DIR"
-cd "$DEPS_DIR"
+rm -rf deps
+mkdir -p deps
+cd deps
 
 # --- FTDI D2XX ---
 if [ ! -d "ftd2xx" ]; then
