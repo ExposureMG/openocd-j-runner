@@ -9,13 +9,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
       with:
-        submodules: 'recursive'  # Fixes the jimtcl "No rule to make target" error
-
+        # Turn off the built-in submodule logic that's failing
+        submodules: false 
+    - name: Manual Submodule Setup
+      run: |
+        # Force git to fetch the submodules manually
+        git submodule update --init --recursive
     - name: Install Dependencies
       run: |
         sudo apt-get update
