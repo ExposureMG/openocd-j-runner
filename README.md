@@ -1,5 +1,7 @@
 # OpenOCD-JRunner
-![Build Status](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/main.yml/badge.svg)
+
+[![Build and Release](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml)
+
 Forked version of OpenOCD-DirtyJTAG designed for use with [J-Runner with Extras]()
 
 ## Changes
