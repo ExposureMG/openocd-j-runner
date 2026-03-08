@@ -45,6 +45,3 @@ if [ -x src/jtag/drivers/libjaylink/autogen.sh ]; then
     ./autogen.sh
     )
 fi
-
-echo "Bootstrap complete. Quick build instructions:"
-echo "./configure ...."

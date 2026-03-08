@@ -25,6 +25,6 @@ if [ ! -f "src/openocd.exe" ]; then echo "ERROR: Build failed! (scripts/build.sh
 
 echo "--- Cleaning up ---"
 ./scripts/clean.sh
-if [ ! -f "src/openocd.exe" ]; then echo "ERROR: Clean failed! (scripts/clean.sh)"; exit 1; fi
+if [ ! -f "output/openocd.exe" ]; then echo "ERROR: Clean failed! (scripts/clean.sh)"; exit 1; fi
 
 echo "--- Build Complete! Check output folder ---"
