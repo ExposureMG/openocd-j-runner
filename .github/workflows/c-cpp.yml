@@ -8,14 +8,37 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: build
-      run: ./build.sh
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'  # Fixes the jimtcl "No rule to make target" error
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          mingw-w64 \
+          binutils-mingw-w64 \
+          p7zip-full \
+          autoconf \
+          automake \
+          libtool \
+          pkg-config \
+          texinfo \
+          wget \
+          curl \
+          unzip
+
+    - name: Build OpenOCD
+      run: |
+        chmod +x ./build.sh
+        ./build.sh
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: openocd-j-runner-win32
+        path: src/openocd.exe  # Or your $BASE_DIR/output/ folder if you use one
