@@ -2,7 +2,7 @@
 
 [![Build and Release](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml)
 
-Forked version of OpenOCD-DirtyJTAG designed for use with [J-Runner with Extras]()
+Forked version of OpenOCD-DirtyJTAG specialized for J-Runner
 
 ## Changes
 - Complete Build Script (Linux x86 / amd64 -> Windows i686) (Tested working 8th March 2026)
