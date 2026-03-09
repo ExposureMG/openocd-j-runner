@@ -2,12 +2,14 @@
 
 [![Build and Release](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml)
 
-Forked version of OpenOCD-DirtyJTAG specialized for J-Runner
+High performance, stripped build of OpenOCD-DirtyJTAG
 
 ## Changes
-- Complete Build Script (Linux x86 / amd64 -> Windows i686) (Tested working 8th March 2026)
-- Significantly slim down repo
-- Fix compile errors
+- All adapters and drivers stripped
+- FTD2XX and DirtyJTAG enabled
+- i686 (32bit) using Libusb0
+- Compile errors fixed
+- Documentation stripped & Repo cleaned
 
 ## Building
 **Requirements:**
