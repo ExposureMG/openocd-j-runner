@@ -1,8 +1,7 @@
 # OpenOCD-JRunner
 
 ![Version](https://img.shields.io/badge/OpenOCD-0.10.0--dev-blue?style=for-the-badge&logo=openocd)
-![Build Size](https://img.shields.io/badge/Size-3.3_MiB-success?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows_x86-orange?style=for-the-badge&logo=windows)
+![Platform](https://img.shields.io/badge/Platform-Windows_i686-orange?style=for-the-badge&logo=windows)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/ExposureMG/openocd-j-runner/c-cpp.yml?style=for-the-badge&logo=github)
 
 
