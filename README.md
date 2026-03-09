@@ -1,13 +1,18 @@
 # OpenOCD-JRunner
 
-[![Build and Release](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/ExposureMG/openocd-j-runner/actions/workflows/c-cpp.yml)
+![Version](https://img.shields.io/badge/OpenOCD-0.10.0--dev-blue?style=for-the-badge&logo=openocd)
+![Platform](https://img.shields.io/badge/Platform-Windows_i686-orange?style=for-the-badge&logo=windows)
+![Build Status](https://img.shields.io/github/actions/workflow/status/ExposureMG/openocd-j-runner/c-cpp.yml?style=for-the-badge&logo=github)
 
-Forked version of OpenOCD-DirtyJTAG specialized for J-Runner
+
+High performance, stripped build of OpenOCD-DirtyJTAG
 
 ## Changes
-- Complete Build Script (Linux x86 / amd64 -> Windows i686) (Tested working 8th March 2026)
-- Significantly slim down repo
-- Fix compile errors
+- All adapters and drivers stripped
+- FTD2XX and DirtyJTAG enabled
+- i686 (32bit) using Libusb0
+- Compile errors fixed
+- Documentation stripped & Repo cleaned
 
 ## Building
 **Requirements:**
