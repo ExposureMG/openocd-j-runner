@@ -9,10 +9,9 @@ This is a customized build system / soft fork of OpenOCD 0.11;
 
 ## Build Instructions
 
-### Linux (Cross-Compilation)
 Ensure you have the MinGW toolchain installed (e.g., `mingw32-gcc`, `mingw64-gcc`, `automake`, `autoconf`, `make`, `git`, `curl`, `unzip`).
 
-Basic usage:
+### Linux (Cross-Compilation)
 ```bash
 ./build.sh          # Default: Build 32-bit Windows binary
 ./build.sh -w64     # Build 64-bit Windows binary
