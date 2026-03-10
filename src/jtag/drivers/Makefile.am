@@ -189,6 +189,9 @@ endif
 if XDS110
 DRIVERFILES += %D%/xds110.c
 endif
+if DIRTYJTAG
+DRIVERFILES += %D%/dirtyjtag.c
+endif
 
 DRIVERHEADERS = \
 	%D%/bitbang.h \
