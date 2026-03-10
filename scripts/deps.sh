@@ -24,23 +24,6 @@ if [ ! -d "ftd2xx" ]; then
     rm -rf ftd2xx_tmp ftd2xx.zip
 fi
 
-# libusb-0
-if [ ! -d "libusb-win32" ]; then
-    echo "--- Downloading libusb-win32 v$libusb0_ver ---"
-    curl -L https://netix.dl.sourceforge.net/project/libusb-win32/libusb-win32-releases/$libusb0_ver/libusb-win32-bin-$libusb0_ver.zip -o libusb.zip
-    
-    if [ ! -f "libusb.zip" ]; then echo "Libusb0 download failed!"; exit 1; fi
-
-    unzip libusb.zip -d libusb-tmp > /dev/null
-    
-    mkdir -p libusb-win32/include/libusb-win32 libusb-win32/lib
-    
-    cp libusb-tmp/libusb-win32-bin-$libusb0_ver/include/lusb0_usb.h libusb-win32/include/libusb-win32/libusb.h
-    cp libusb-tmp/libusb-win32-bin-$libusb0_ver/lib/gcc/libusb.a libusb-win32/lib/libusb.a
-    
-    rm -rf libusb-tmp libusb.zip
-fi
-
 # libusb-1.0
 if [ ! -d "libusb-win" ]; then
     echo "--- Downloading libusb-1 v$libusb1_ver ---"

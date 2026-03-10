@@ -24,8 +24,6 @@ echo "--- Configuring Build ---"
     LDFLAGS="-Wl,--allow-multiple-definition" \
     LIBUSB1_LIBS="-Ldeps/libusb-win/lib -lusb-1.0 -lsetupapi -lole32 -ladvapi32 -lwinmm -lmsvcr120" \
     CPPFLAGS="-DHAVE_LIBUSB_ERROR_NAME" \
-    LIBUSB0_CFLAGS="-Ideps/libusb-win32/include/libusb-win32" \
-    LIBUSB0_LIBS="-Ldeps/libusb-win32/lib -lusb -lsetupapi -lole32 -ladvapi32 -lwinmm -lmsvcr120" \
     CFLAGS="-O2"
 
 echo "--- Starting Build ---"
