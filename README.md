@@ -1,6 +1,6 @@
 # XboxOCD Builder (OpenOCD-JRunner)
 
-This is a customized build system / soft fork of OpenOCD 0.11;
+Opinionated build system and Hard fork of OpenOCD 0.11;
 - DirtyJTAG Patches updated and merged
 - Libraries / dependencies statically linked
 - FTD2XX Re-enabled
