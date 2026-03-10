@@ -99,3 +99,8 @@ TAGS
 
 # ctags tag files
 tags
+
+# build artifacts
+output/
+deps/
+7z.exe

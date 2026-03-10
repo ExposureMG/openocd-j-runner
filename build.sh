@@ -6,11 +6,11 @@ TARGET="w32"
 while [[ $# -gt 0 ]]; do
   case $1 in
     -w32)
-      TARGET="w32"
+      TARGET="i686"
       shift # Move to the next argument
       ;;
     -w64)
-      TARGET="w64"
+      TARGET="x86_64"
       shift
       ;;
     -linux)

@@ -54,8 +54,8 @@ echo "--- Configuring Build ---"
     LIBUSB1_LIBS="-Ldeps/libusb-win/lib -lusb-1.0 -lsetupapi -lole32 -ladvapi32 -lwinmm" \
     CPPFLAGS="-DHAVE_LIBUSB_ERROR_NAME" \
     CFLAGS="-O2" \
-    HIDAPI_CFLAGS="-Ideps/libusb-win/include/libusb-1.0" \
-    HIDAPI_LIBS="-Ldeps/libusb-win/lib -lusb-1.0 -lsetupapi -lole32 -ladvapi32 -lhid"
+    HIDAPI_CFLAGS="-Ideps/hidapi/include/hidapi" \
+    HIDAPI_LIBS="-Ldeps/hidapi/lib -lhidapi -lsetupapi -lole32 -ladvapi32 -lhid"
 
 echo "--- Starting Build ---"
 make -j$(nproc)

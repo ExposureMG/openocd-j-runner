@@ -42,4 +42,22 @@ if [ ! -d "libusb-win" ]; then
     rm -rf libusb-tmp libusb.7z
 fi
 
+hidapi_ver="0.15.0"
+# hidapi (for CMSIS-DAP HID)
+if [ ! -d "hidapi" ]; then
+    echo "--- Downloading hidapi v$hidapi_ver ---"
+    curl -L https://github.com/libusb/hidapi/releases/download/hidapi-$hidapi_ver/hidapi-win.zip -o hidapi.zip
+    
+    if [ ! -f "hidapi.zip" ]; then echo "HIDAPI download failed!"; exit 1; fi
+    unzip -q hidapi.zip -d hidapi_tmp
+    
+    mkdir -p hidapi/include/hidapi
+    mkdir -p hidapi/lib
+    cp hidapi_tmp/include/hidapi.h hidapi/include/hidapi/
+    # We'll use the x86 lib for our i686-w64-mingw32 build
+    cp hidapi_tmp/x86/hidapi.lib hidapi/lib/
+    
+    rm -rf hidapi_tmp hidapi.zip
+fi
+
 echo "--- All dependencies verified and structured ---"
