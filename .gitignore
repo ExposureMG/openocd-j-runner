@@ -103,4 +103,5 @@ tags
 # build artifacts
 output/
 deps/
+logs/
 7z.exe

@@ -1,4 +1,23 @@
-HOST_TRIPLET="i686-w64-mingw32"
+#!/bin/bash
+
+# Derive arch strings from TARGET exported by build.sh
+if [ "$TARGET" = "w64" ]; then
+  HOST_TRIPLET="x86_64-w64-mingw32"
+  LIBUSB_ARCH="MinGW64"
+  HIDAPI_ARCH="x64"
+  STRIP="${HOST_TRIPLET}-strip"
+  FTD2XX_ARCH="amd64"
+else
+  # Default: w32
+  HOST_TRIPLET="i686-w64-mingw32"
+  LIBUSB_ARCH="MinGW32"
+  HIDAPI_ARCH="x86"
+  STRIP="${HOST_TRIPLET}-strip"
+  FTD2XX_ARCH="i386"
+fi
+
+export HOST_TRIPLET LIBUSB_ARCH HIDAPI_ARCH STRIP FTD2XX_ARCH
+
 echo "--- Configuring Build ---"
 ./configure \
     --host=$HOST_TRIPLET \
@@ -45,6 +64,9 @@ echo "--- Configuring Build ---"
     --disable-rshim \
     --disable-jlink \
     --disable-internal-libjaylink \
+    --disable-bluenrg-x \
+    --disable-cc3220sf \
+    --disable-cc26xx \
     --enable-ftdi \
     --enable-dirtyjtag \
     --enable-cmsis-dap \
@@ -53,7 +75,7 @@ echo "--- Configuring Build ---"
     LDFLAGS="-static -static-libgcc -static-libstdc++ -Wl,--allow-multiple-definition" \
     LIBUSB1_LIBS="-Ldeps/libusb-win/lib -lusb-1.0 -lsetupapi -lole32 -ladvapi32 -lwinmm" \
     CPPFLAGS="-DHAVE_LIBUSB_ERROR_NAME" \
-    CFLAGS="-O2" \
+    CFLAGS="-O2 -Wno-alloc-size-larger-than" \
     HIDAPI_CFLAGS="-Ideps/hidapi/include/hidapi" \
     HIDAPI_LIBS="-Ldeps/hidapi/lib -lhidapi -lsetupapi -lole32 -ladvapi32 -lhid"
 
