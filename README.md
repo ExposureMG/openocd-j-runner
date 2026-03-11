@@ -10,7 +10,7 @@ Hard fork of OpenOCD 0.11:
 
 ## Build Instructions
 
-Ensure you have the MinGW toolchain installed (e.g., `mingw32-gcc`, `mingw64-gcc`, `automake`, `autoconf`, `make`, `git`, `curl`, `unzip`).
+Required: `mingw32-gcc`, `mingw64-gcc`, `automake`, `autoconf`, `make`, `git`, `curl`, `unzip`
 
 ### Linux (Cross-Compilation)
 ```bash

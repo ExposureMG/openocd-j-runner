@@ -1,0 +1,55 @@
+name: Nightly
+
+on:
+  push:
+    branches:
+      - 0.11-nightly
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Dependencies
+        run: sudo apt-get update && sudo apt-get install -y gcc-mingw-w64 g++-mingw-w64 automake autoconf libtool make git curl unzip zip
+
+      - name: Build 32-bit (w32)
+        run: |
+          ./build.sh -clean
+          mkdir -p package/w32
+          cp -r output/* package/w32/
+          cd package
+          zip -r openocd-nightly-w32.zip w32/
+          cd ..
+          rm -rf output/*
+
+      - name: Build 64-bit (w64)
+        run: |
+          ./build.sh -w64 -clean
+          mkdir -p package/w64
+          cp -r output/* package/w64/
+          cd package
+          zip -r openocd-nightly-w64.zip w64/
+          cd ..
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: openocd-nightly-builds
+          path: |
+            package/openocd-nightly-w32.zip
+            package/openocd-nightly-w64.zip
+
+      - name: Update Nightly Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: nightly
+          name: Nightly Build
+          prerelease: true
+          files: |
+            package/openocd-nightly-w32.zip
+            package/openocd-nightly-w64.zip
