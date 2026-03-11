@@ -54,8 +54,8 @@ else
 fi
 
 # libusb-1.0
-if [ "$(stored_ver libusb1)" = "$libusb1_ver" ] && [ -d "libusb-win" ]; then
-    echo "--- Skipping libusb-1.0 (v$libusb1_ver already downloaded) ---"
+if [ "$(stored_ver "libusb1_${TARGET}")" = "$libusb1_ver" ] && [ -d "libusb-win" ]; then
+    echo "--- Skipping libusb-1.0 (v$libusb1_ver for $TARGET already downloaded) ---"
 else
     echo "--- Downloading libusb-1.0 v$libusb1_ver ---"
     rm -rf libusb-win
@@ -70,12 +70,12 @@ else
     cp libusb-tmp/$LIBUSB_ARCH/static/libusb-1.0.a libusb-win/lib/
 
     rm -rf libusb-tmp libusb.7z
-    write_ver libusb1 "$libusb1_ver"
+    write_ver "libusb1_${TARGET}" "$libusb1_ver"
 fi
 
 # hidapi
-if [ "$(stored_ver hidapi)" = "$hidapi_ver" ] && [ -d "hidapi" ]; then
-    echo "--- Skipping hidapi (v$hidapi_ver already downloaded) ---"
+if [ "$(stored_ver "hidapi_${TARGET}")" = "$hidapi_ver" ] && [ -d "hidapi" ]; then
+    echo "--- Skipping hidapi (v$hidapi_ver for $TARGET already downloaded) ---"
 else
     echo "--- Downloading hidapi v$hidapi_ver ---"
     rm -rf hidapi
@@ -90,7 +90,7 @@ else
     cp hidapi_tmp/$HIDAPI_ARCH/hidapi.lib hidapi/lib/
 
     rm -rf hidapi_tmp hidapi.zip
-    write_ver hidapi "$hidapi_ver"
+    write_ver "hidapi_${TARGET}" "$hidapi_ver"
 fi
 
 echo "--- All dependencies verified and structured ---"

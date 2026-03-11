@@ -67,8 +67,8 @@ if ((Get-StoredVer "ftd2xx") -eq $ftdi_ver -and (Test-Path "ftd2xx")) {
 }
 
 # libusb
-if ((Get-StoredVer "libusb1") -eq $libusb1_ver -and (Test-Path "libusb-win")) {
-    Write-Host "--- Skipping libusb-1.0 (v$libusb1_ver already downloaded) ---"
+if ((Get-StoredVer "libusb1_$Target") -eq $libusb1_ver -and (Test-Path "libusb-win")) {
+    Write-Host "--- Skipping libusb-1.0 (v$libusb1_ver for $Target already downloaded) ---"
 } else {
     Write-Host "--- Downloading libusb-1.0 v$libusb1_ver ---"
     if (Test-Path "libusb-win") { Remove-Item "libusb-win" -Recurse -Force }
@@ -92,12 +92,12 @@ if ((Get-StoredVer "libusb1") -eq $libusb1_ver -and (Test-Path "libusb-win")) {
     Copy-Item "libusb-tmp/$LIBUSB_ARCH/static/libusb-1.0.a" "libusb-win/lib/"
     
     Remove-Item "libusb-tmp", "libusb.7z" -Recurse -Force
-    Set-StoredVer "libusb1" $libusb1_ver
+    Set-StoredVer "libusb1_$Target" $libusb1_ver
 }
 
 # hidapi
-if ((Get-StoredVer "hidapi") -eq $hidapi_ver -and (Test-Path "hidapi")) {
-    Write-Host "--- Skipping hidapi (v$hidapi_ver already downloaded) ---"
+if ((Get-StoredVer "hidapi_$Target") -eq $hidapi_ver -and (Test-Path "hidapi")) {
+    Write-Host "--- Skipping hidapi (v$hidapi_ver for $Target already downloaded) ---"
 } else {
     Write-Host "--- Downloading hidapi v$hidapi_ver ---"
     if (Test-Path "hidapi") { Remove-Item "hidapi" -Recurse -Force }
@@ -112,7 +112,7 @@ if ((Get-StoredVer "hidapi") -eq $hidapi_ver -and (Test-Path "hidapi")) {
     Copy-Item "hidapi_tmp/$HIDAPI_ARCH/hidapi.lib" "hidapi/lib/"
     
     Remove-Item "hidapi_tmp", "hidapi.zip" -Recurse -Force
-    Set-StoredVer "hidapi" $hidapi_ver
+    Set-StoredVer "hidapi_$Target" $hidapi_ver
 }
 
 Write-Host "--- All dependencies verified and structured ---"

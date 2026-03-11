@@ -1,5 +1,10 @@
 # XboxOCD Builder (OpenOCD-JRunner)
 
+| Branch | Build Status |
+|--------|--------------|
+| [`0.11-master`](https://github.com/ExposureMG/xboxocd/releases/latest) | [![Release Build](https://github.com/ExposureMG/xboxocd/actions/workflows/release.yml/badge.svg?branch=0.11-master)](https://github.com/ExposureMG/xboxocd/actions/workflows/release.yml) |
+| [`0.11-nightly`](https://github.com/ExposureMG/xboxocd/releases/tag/nightly) | [![Nightly Build](https://github.com/ExposureMG/xboxocd/actions/workflows/nightly.yml/badge.svg?branch=0.11-nightly)](https://github.com/ExposureMG/xboxocd/actions/workflows/nightly.yml) |
+
 Hard fork of OpenOCD 0.11:
 - Custom build system wrapper (Opinionated)
 - DirtyJTAG Patches updated and merged
