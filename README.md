@@ -39,7 +39,6 @@ Required: `mingw32-gcc`, `mingw64-gcc`, `automake`, `autoconf`, `make`, `git`, `
 - `cmsis-dap`
 
 ### Disabled Adapters
-The following adapters / extensions are permenantly disabled by the wrapper:
 - xds110, osbdm, opendous, rlink, aice, usbprog
 - armjtagew, kitprog, cmsis-dap-v2, nulink, rshim
 - jlink, internal-libjaylink, bluenrg-x, cc3220sf, cc26xx
